@@ -9,6 +9,6 @@ This program uses the requests and the BeautifulSoup modules to grab a websites 
 
 ## How to run the program
 1. open up the enviroment
-2. on line 47, replace the 'articles.text' with your articles text file
+2. on line 47, replace the 'raw/articles.text' with your articles text file
 3. run the program inside the enviroment
 &nbsp - python websiteScrapper.py
