@@ -22,14 +22,20 @@ For this program to work, you'll need to have an api key. To do this you'll firs
 ```console
 conda activate my-new-env
 ```
-3. Replace the 'raw/articles.text' with your articles text file
+2. Replace the 'raw/articles.text' with your articles text file
 ```python
 with open('raw/articles.text','r') as file:
     urls = file.readlines()
 ```
 The raw/ is there because you should save your article text file inside the raw folder
 
-3. From inside the activated environment, run the python program:
+3. Create an .env file inside the root directory folder (CS325_P2)
+   1. Inside the .env file, write out the following code:
+```console
+OPENAI_API_KEY="YOUR_API_KEY"
+```
+
+4. From inside the activated environment, run the python program:
 ```console
 python websiteScrapper.py
 ```
