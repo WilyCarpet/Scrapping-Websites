@@ -24,23 +24,24 @@ class Scrapper:
 
 class BeautifulSoupScrapper(Scrapper):
     def __init__(self):
-        self.response = None
+        self.url = None
         self.soup = None
 
     # Sends an HTTP GET request to the specified URL, the response
     # variable will contain the server's reponse to the HTTP request
     def requestURL(self,url):
-        self.response = requests.get(url)
+        self.url = url
     
-    #Return a BeautifulSoup object that has removed all uneccessary elems from the parse tree
+    #Return a single string of the article text
     def extract(self):
+        response = requests.get(self.url)
         # When you parse HTML content using BeautifulSoup, it creats
         # a parse tree, which is a hierachical representation of the
         # HTML structure of the webpage. The line is parsing the HTML
         # content of the 'reponse' object and creates a BeautifulSoup
         # object 'soup' that represents the parsed HTML content of the
         # webpage
-        self.soup = BeautifulSoup(self.response.content, 'html.parser')
+        self.soup = BeautifulSoup(response.content, 'html.parser')
 
         # This line utilizes BeautifulSoup's find_all() method to locate
         # all HTML elements listed
@@ -55,5 +56,17 @@ class BeautifulSoupScrapper(Scrapper):
             if elem.name == 'div' and 'user-input' in elem.get('class',[]):
                 elem.extract()
         
+        #Find the main content of the article by searching the <article> tag
+        article_content = self.soup.find('article')
 
-        return self.soup
+        #Will check if article_content contains anything
+        if article_content:
+            #It extracts all the text from the HTML element and its children
+            #stripping away any HTML tags and stores it int a single string
+            #Then it is stored into variable article_text
+            article_text = article_content.get_text()
+            
+            return article_text
+        else:
+            print(f"No article content found on {self.url}.")
+            exit(1)        
