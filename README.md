@@ -10,6 +10,9 @@ conda env create --name my-new-env --file requirements.yml
 ## How to create an openAI account and API key for the program
 For this program to work, you'll need to have an api key. To do this you'll first need to create an account with openai. 
 1. Follow this [link](https://auth0.openai.com/u/login/identifier?state=hKFo2SBzN2dneVh4anlUN3lLQ0g2U3o2U3BVXzFlRzE4XzMxQqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGhQRGNJZGVxR29nazhpdmJvSldBQjVQNWU0Yk1HMndWo2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q)
+2. Create/log-in to your account
+3. Go to API keys
+4. Click "Create new secret key", and give it a name 
 
 ## How to run the program
 1. Open up the environment
