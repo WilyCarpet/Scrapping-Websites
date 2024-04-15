@@ -1,9 +1,9 @@
-#The program contains the LLMConciser class. The class is initialized with an article text
-#The class as the function generate_concise_description which will take in an article text
-#and put it into a prompt variable where it will ask to make the article concise
-# and give it a title. Using the openai api it will use your api key to send it over
-#to chat gpt and generate a response back. The response is saved inot concise_description
-# and is then returned. 
+# The program contains the LLMConciser class. The class is initialized with an article text
+# The class as the function generate_concise_description which will take in an article text
+# and put it into a prompt variable where it will ask to make the article concise
+#  and give it a title. Using the openai api it will use your api key to send it over
+# to chat gpt and generate a response back. The response is saved inot concise_description
+#  and is then returned. 
 
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -12,7 +12,7 @@ import os
 load_dotenv()
 
 client = OpenAI(
-    #Enter API Key here
+    # Enter API Key here
     api_key= os.getenv("OPENAI_API_KEY"),
 )
 
@@ -23,7 +23,7 @@ class LLMConciser:
     def generate_concise_description(self):
         prompt = f"Generate a title along with the concise descripton up to 50 words of this article: \"{self.article_text}\""
 
-        #This uses openai's completions api to send over the prompt
+        # This uses openai's completions api to send over the prompt
         response = client.completions.create(
             model="gpt-3.5-turbo-instruct",
             prompt=prompt,
