@@ -11,10 +11,14 @@ import os
 
 load_dotenv()
 
+
 client = OpenAI(
-    #Enter API Key here
+    #Enter API Key here, useing the python-dotenv module I stored my key inside of a .env file and then pulled from there so 
+    #it wouldn't be in the source code  
+    
     api_key= os.getenv("OPENAI_API_KEY"),
 )
+
 
 class LLMConciser:
     def __init__(self,article_text):
