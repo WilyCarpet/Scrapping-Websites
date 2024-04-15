@@ -3,9 +3,13 @@
 #This will go through each web article url in the file and create a ScrapeArticle object.
 #Then run the scrape_article function on each object. 
 
-from module_1 import scrapper as websiteScrap
-from module_2 import file_handling as fileHandler
-from module_3 import ai_processor as aiProcessor 
+try:
+    from module_1 import scrapper as websiteScrap
+    from module_2 import file_handling as fileHandler
+    from module_3 import ai_processor as aiProcessor 
+except ImportError as e:
+    print(f"Error importing module: {e}")
+
 
 class ScrapeArticle:
     def __init__(self,url):
@@ -38,3 +42,4 @@ with open('raw/articles.text','r') as file:
 for url in urls:
     article = ScrapeArticle(url.strip())
     article.scrape_article()
+    pass
