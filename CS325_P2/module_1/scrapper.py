@@ -37,8 +37,15 @@ class BeautifulSoupScrapper(Scrapper):
         self.url = url
     
     # Return a single string of the article text
+    
     def extract(self):
-        response = requests.get(self.url)
+        #Checks if the URL is not valid or if there are other issues (such as network problems), you might receive an exception.
+        try:
+            response = requests.get(self.url)
+        except requests.exceptions.RequestException as e:
+            # If there's any error making the request, consider the URL invalid
+            print("Error:", e)
+
         #  When you parse HTML content using BeautifulSoup, it creats
         #  a parse tree, which is a hierachical representation of the
         #  HTML structure of the webpage. The line is parsing the HTML
