@@ -38,16 +38,20 @@ class LLMConciser:
     def generate_concise_description(self):
         prompt = f"Generate a title along with the concise descripton up to 50 words of this article: \"{self.article_text}\""
 
-        # This uses openai's completions api to send over the prompt
-        response = client.completions.create(
-            model="gpt-3.5-turbo-instruct",
-            prompt=prompt,
-            temperature=1,
-            max_tokens=200,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-        )
+       #Check if the there are any errors when getting the response
+        try:
+            # This uses openai's completions api to send over the prompt
+            response = client.completions.create(
+                model="gpt-3.5-turbo-instruct",
+                prompt=prompt,
+                temperature=1,
+                max_tokens=200,
+                top_p=1,
+                frequency_penalty=0,
+                presence_penalty=0
+            )
+        except Exception as e:
+             print("An error occurred while getting the response:", e)
         # Returns the summary generated using the OpenAI api to the "concised" folder in "Data"
         concise_description = response.choices[0].text
         return concise_description
