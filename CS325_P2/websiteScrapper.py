@@ -34,9 +34,13 @@ class ScrapeArticle:
         filehandler.getArticle(concised_article_text)
         filehandler.writeToConcised()
 
-# This is where you will put your article text file, the raw/ is there because you should save your article text file inside the raw folder
-with open('Data/raw/articles.text','r') as file:
-    urls = file.readlines()
+#Test if the articles.text file was read in correctly
+try:
+    # This is where you will put your article text file, the Data/raw/ is there because you should save your article text file inside the raw folder
+    with open('Data/raw/articles.text', 'r') as file:
+        urls = file.readlines()
+except IOError as e:
+    print(f"Error reading file: {e}")
 
 for url in urls:
     article = ScrapeArticle(url.strip())
