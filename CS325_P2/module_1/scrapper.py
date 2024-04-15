@@ -13,8 +13,10 @@ import requests
 #  and XML files.
 from bs4 import BeautifulSoup
 
+# Importing the abc classs to allow for the abstract method
 from abc import ABC, abstractmethod
 
+# Class for News Scraper utilizing the abstract method
 class Scrapper:
     @abstractmethod
     def requestURL(self,url):
@@ -22,7 +24,9 @@ class Scrapper:
     def extract(self):
         pass
 
+# Class for News Scraper utilizing beautiful soup
 class BeautifulSoupScrapper(Scrapper):
+    # Initializing the class url and soup to none
     def __init__(self):
         self.url = None
         self.soup = None
