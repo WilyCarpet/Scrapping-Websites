@@ -10,7 +10,6 @@ try:
 except ImportError as e:
     print(f"Error importing module: {e}")
 
-
 class ScrapeArticle:
     def __init__(self,url):
         self.url = url
