@@ -12,7 +12,7 @@ For this program to work, you'll need to have an api key. To do this you'll firs
 1. Follow this [link](https://auth0.openai.com/u/login/identifier?state=hKFo2SBzN2dneVh4anlUN3lLQ0g2U3o2U3BVXzFlRzE4XzMxQqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGhQRGNJZGVxR29nazhpdmJvSldBQjVQNWU0Yk1HMndWo2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q)
 2. Create/log-in to your account
 3. Go to API keys
-   ![API Key example](https://github.com/WilyCarpet/Scrapping-Websites/blob/br1/API%20Key%20example.png)
+   ![API Key example](Images/apiExample.png)
 4. Click "Create new secret key", and give it a name
 5. Save the key for later use in this program
 
@@ -24,7 +24,7 @@ conda activate my-new-env
 ```
 2. Replace the 'raw/articles.text' with your articles text file
 ```python
-with open('raw/articles.text','r') as file:
+with open('Data/raw/articles.text','r') as file:
     urls = file.readlines()
 ```
 The raw/ is there because you should save your article text file inside the raw folder
