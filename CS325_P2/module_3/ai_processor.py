@@ -6,7 +6,7 @@
 #  and is then returned. 
 
 # Importing openai api to allow for text generation based on the data found in "processed"
-from openai import OpenAI
+from openai import OpenAI, ApiError
 # Implemnenting "dotenv" to allow for use of api key without making the key public
 from dotenv import load_dotenv
 # Implementing "os" to allow for use of operating system functionality
@@ -17,13 +17,17 @@ load_dotenv()
 
 
 # Opening OpenAI client
-client = OpenAI(
-    #Enter API Key here, useing the python-dotenv module I stored my key inside of a .env file and then pulled from there so 
-    #it wouldn't be in the source code  
-    
-    api_key= os.getenv("OPENAI_API_KEY"),
-)
-
+try:
+    client = OpenAI(
+        # Enter API Key here
+        api_key= os.getenv("OPENAI_API_KEY"),
+    )
+#If there's an error related to the API key (e.g., invalid API key), it catches the ApiError and prints the error message.
+except ApiError as e:
+        print("API key is invalid:", e)
+# If there's any other unexpected error, it catches it using the generic Exception class and prints the error message.
+except Exception as e:
+     print("An unexpected error occurred:", e)
 
 # Class for generation of new article based on data from the "processed" file in "Data"
 class LLMConciser:
