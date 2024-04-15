@@ -15,16 +15,25 @@ class FileHandling:
 
     # used for writing files within the processed folder
     def writeToProcessed(self):
-            # with statement automatically handles file closing
-            with open(f'Data/processed/article_{self.url.strip().split("/")[-1]}.txt','w',encoding='utf-8') as file:
-                file.write(self.article_text)
-        
-            print(f"Article scraped from {self.url} and stored successfully!")
+            # Check if files are stored to the correct folders
+            try:
+                # with statement automatically handles file closing
+                with open(f'Data/processed/article_{self.url.strip().split("/")[-1]}.txt','w',encoding='utf-8') as file:
+                    file.write(self.article_text)
+            
+                print(f"Article scraped from {self.url} and stored successfully!")
+            except IOError as e:
+                print(f"Error writing to processed folder: {e}")
 
     # used for writing files to the "concised" subfolder in "Data" folder
     def writeToConcised(self):
-        # Writing the file to the "concised folder" located in the "Data" folder
-        with open(f'Data/concised/article_{self.url.strip().split("/")[-1]}.txt','w',encoding='utf-8') as file:
-              file.write(self.article_text)
+        # Check if files are stored to the correct folders
+        try:
+            # Writing the file to the "concised folder" located in the "Data" folder
+            with open(f'Data/concised/article_{self.url.strip().split("/")[-1]}.txt','w',encoding='utf-8') as file:
+                file.write(self.article_text)
+        except IOError as e:
+            print(f"Error writing to concised folder: {e}")
+
 
         print(f"Article concised from {self.url} and stored successfully!")
