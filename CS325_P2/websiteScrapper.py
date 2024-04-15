@@ -36,7 +36,7 @@ class ScrapeArticle:
         filehandler.writeToConcised()
 
 # This is where you will put your article text file, the raw/ is there because you should save your article text file inside the raw folder
-with open('raw/articles.text','r') as file:
+with open('Data/raw/articles.text','r') as file:
     urls = file.readlines()
 
 for url in urls:

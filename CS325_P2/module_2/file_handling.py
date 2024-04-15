@@ -16,7 +16,7 @@ class FileHandling:
     # used for writing files within the processed folder
     def writeToProcessed(self):
             # with statement automatically handles file closing
-            with open(f'processed/article_{self.url.strip().split("/")[-1]}.txt','w',encoding='utf-8') as file:
+            with open(f'Data/processed/article_{self.url.strip().split("/")[-1]}.txt','w',encoding='utf-8') as file:
                 file.write(self.article_text)
         
             print(f"Article scraped from {self.url} and stored successfully!")
@@ -24,7 +24,7 @@ class FileHandling:
     # used for writing files to the "concised" subfolder in "Data" folder
     def writeToConcised(self):
         # Writing the file to the "concised folder" located in the "Data" folder
-        with open(f'concised/article_{self.url.strip().split("/")[-1]}.txt','w',encoding='utf-8') as file:
+        with open(f'Data/concised/article_{self.url.strip().split("/")[-1]}.txt','w',encoding='utf-8') as file:
               file.write(self.article_text)
 
         print(f"Article concised from {self.url} and stored successfully!")
