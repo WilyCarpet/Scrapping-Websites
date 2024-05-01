@@ -51,12 +51,12 @@ python websiteScrapper.py
 
 2. **Choose API Module**:
    - After creating an account with OpenAI, you will be prompted with an option to choose between navigating to "ChatGPT" or "API"; choose "API".
-   ![Intructions I](images/SETI.png)
+   ![Intructions I](Images/SETI.png)
 
 3. **Generate an API Key**:
    - After signing up, navigate to the API section in your account settings.
    - Generate an API key that will allow you to make API calls to the OpenAI API.
-   ![Intructions II](images/SETII.png)
+   ![Intructions II](Images/SETII.png)
 
 4. **Use the API Key**:
    - Once you have your API key, you can use it in line 21 of the `ai_processor.py` script to access the OpenAI API for generating concise summaries of news articles.
