@@ -14,24 +14,25 @@ def txt_to_html(txt_file, html_file):
     with open(txt_file, 'r') as f:
         content = f.readlines()
 
-    # Extract header and paragraph, since you will be having multiple articles the logic will
-    # change for the code given below.
-
     # Create root element for HTML, try to remember the structure of a HTML file
     root = ET.Element("html")
 
     # Create head and body elements, try to understand how subElements works
     head = ET.SubElement(root, "head")
+    link = ET.SubElement(head,"link rel=\"stylesheet\" href=\"stylesheet.css\"")
     title = ET.SubElement(head, "title")
     title.text = "My News Aggregation Site"
     body = ET.SubElement(root, "body")
-    for line in range(2,len(content),2):
-        header = content[line - 2].strip()
+
+    # Extract header and paragraph for each article
+    for line in range(1,len(content),2):
+
+        header = content[line - 1].strip()
         paragraph = "".join(content[line]).strip()
 
         # Create header and paragraph elements in body
-        h1 = ET.SubElement(body, "h1")
-        h1.text = header
+        h2 = ET.SubElement(body, "h2")
+        h2.text = header
         p = ET.SubElement(body, "p")
         p.text = paragraph
 
